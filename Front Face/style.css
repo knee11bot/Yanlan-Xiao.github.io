@@ -1,0 +1,99 @@
+/* styles.css */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    position: relative;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#defaultGif{
+    width: 2800px;
+    height:1500px;
+    max-width: 2800px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+
+
+}
+#videoPlayer {
+    width: 2800px;
+    height:1500px;
+    max-width: 2800px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hidden {
+    display: none;
+}
+
+.buttons {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 33%; /* 占网页宽度的三分之一 */
+    display: flex;
+    justify-content: space-between;
+    z-index: 10; /* 保证按钮始终在最上层 */
+}
+
+.button {
+    flex: 1;
+    margin: 0 5px;
+    cursor: pointer;
+    text-align: center;
+    opacity: 1;
+    transition: opacity 0.3s;
+    position: relative;
+}
+
+/* style.css */
+.inactive {
+    opacity: 0.5; /* 其他按钮透明度降低 */
+    pointer-events: none; /* 禁止点击事件 */
+}
+
+.button.active {
+    opacity: 1; /* 被点击的按钮保持不变 */
+}
+
+.circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #007bff;
+    margin: 0 auto 10px auto;
+}
+
+img {
+    width: 40px;
+    height: 40px;
+}
+
+span {
+    display: block;
+    margin-top: 5px;
+    font-size: 14px;
+    color: #333;
+}
