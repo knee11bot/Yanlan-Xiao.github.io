@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Spider Web Effect</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-image: url('39196d05329a1569041a3365f52047eb.gif'); /* 在这里替换为你的GIF文件的URL */
+            background-size: cover; /* 背景图片覆盖整个屏幕 */
+            background-repeat: no-repeat; /* 不重复背景图片 */
+            background-position: center center; /* 背景图片居中显示 */
+        }
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        let points = [];
+
+        // Adjust canvas size to window size
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        // Draw function
+        function draw() {
+            // Clear the canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw lines from each stored point to the current mouse position
+            ctx.strokeStyle = 'red';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            for (let point of points) {
+                ctx.moveTo(point.x, point.y);
+                ctx.lineTo(mouseX, mouseY);
+            }
+            ctx.stroke();
+        }
+
+        // Mouse position
+        let mouseX = 0;
+        let mouseY = 0;
+
+        // Update mouse position
+        canvas.addEventListener('mousemove', (event) => {
+            mouseX = event.clientX;
+            mouseY = event.clientY;
+            draw();
+        });
+
+        // Add a point on mouse click
+        canvas.addEventListener('click', () => {
+            points.push({ x: mouseX, y: mouseY });
+            draw();
+        });
+
+        // Resize canvas on window resize
+        window.addEventListener('resize', resizeCanvas);
+
+        // Initial setup
+        resizeCanvas();
+    </script>
+</body>
+</html>
